@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cd "${0%/*}/.."
+cp .env.example .env
+
+docker-compose -p innostars -f docker/docker-compose.yml up -d
+
+docker exec innostars_php_1 composer install
+docker run --user $(id -u) --rm -v $(pwd):/usr/src/app -w /usr/src/app node:8.1 yarn install
+docker run --user $(id -u) --rm -v $(pwd):/usr/src/app -w /usr/src/app node:8.1 yarn run dev
+
+mysql -uroot -proot -h 127.0.0.1 -e "create database innostars;grant all on innostars.* to 'innostars'@'172.16.0.0/255.240.0.0' identified by 'secret';"
+docker exec innostars_php_1 php artisan migrate
+
+chmod 777 -R storage bootstrap/cache

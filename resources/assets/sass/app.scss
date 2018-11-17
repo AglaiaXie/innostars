@@ -1,0 +1,27 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+@import "~bulma/sass/utilities/all";
+
+// Customize
+$background: $white-ter;
+
+@import "~bulma/bulma";
+
+@import "~bulma-steps-component/bulma-steps";
+$fa-font-path: "../../../node_modules/font-awesome/fonts" !default;
+@import "~font-awesome/scss/font-awesome.scss";
+
+@import "~buefy/src/scss/buefy";
+
+#app .navbar {
+  box-shadow: 0 1px 0 rgba(219,219,219,.3);
+}
+
+.schedule-content {
+  padding: 0.5rem;
+}

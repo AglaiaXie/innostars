@@ -1,0 +1,5 @@
+@include('common.partial.detail-property', ['name' => 'Contact Person', 'value' => object_get($participant, 'company.contact_name')])
+@include('common.partial.photo-property', ['name' => 'Photo', 'photo' => object_get($participant, 'company.contact_photo')])
+@include('common.partial.detail-property', ['name' => 'Title', 'value' => object_get($participant, 'company.contact_title')])
+@include('common.partial.detail-property', ['name' => 'Phone', 'value' => object_get($participant, 'company.contact_phone')])
+@include('common.partial.detail-property', ['name' => 'Email', 'value' => object_get($participant, 'company.contact_email')])

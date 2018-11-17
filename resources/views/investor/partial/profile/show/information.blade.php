@@ -1,0 +1,6 @@
+@include('common.partial.detail-property', ['name' => 'Company Name 公司名', 'value' => $user->investor_profile->company_name])
+@include('common.partial.detail-property', ['name' => 'Company Description 公司介绍', 'value' => $user->investor_profile->company_description])
+@include('common.partial.detail-property', ['name' => 'Job Title 职位', 'value' => $user->investor_profile->title])
+@include('common.partial.detail-property', ['name' => 'Phone 常用电话', 'value' => $user->investor_profile->phone])
+@include('common.partial.detail-property', ['name' => 'Education 最高学历', 'value' => $user->investor_profile->education])
+@include('common.partial.detail-property', ['name' => 'How did you hear about us? 您是从哪里了解到此活动？', 'value' => $user->investor_profile->refer])

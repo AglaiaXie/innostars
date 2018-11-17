@@ -1,0 +1,2 @@
+@include('common.partial.detail-property', ['name' => 'How did you hear about us?', 'value' => $judge->judge_profile->refer])
+@include('common.partial.detail-property', ['name' => 'Have you been a judge for other competitions? If so, could you provide a name?', 'value' => $judge->judge_profile->experience])

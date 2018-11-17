@@ -1,0 +1,7 @@
+#!/bin/bash
+
+docker network create mysql-net
+docker network create proxy-net
+mkdir ~/mysql
+docker run --name mysql -v ~/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d -p 127.0.0.1:3306:3306 --network mysql-net mysql:8.0.3
+docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro --network proxy-net --name nginx-proxy jwilder/nginx-proxy

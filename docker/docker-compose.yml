@@ -1,0 +1,30 @@
+version: '3'
+
+networks:
+  mysql-net:
+    external: true
+  proxy-net:
+    external: true
+
+services:
+  web:
+    image: nginx:latest
+    volumes:
+      - ../:/app
+      - ./site.conf:/etc/nginx/conf.d/site.conf
+    environment:
+      - VIRTUAL_HOST=app.test
+    expose:
+      - 80
+    links:
+      - php
+    networks:
+      - proxy-net
+      - default
+  php:
+    image: johnnie502/php-fpm-laravel
+    volumes:
+      - ../:/app
+    networks:
+      - mysql-net
+      - default
